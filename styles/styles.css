@@ -3,9 +3,31 @@
     text-decoration: solid;
     text-align: center;
     text-decoration: underline;
+    text-decoration: aliceblue;
+    
 }
 .profiles {
     color: rgb(0, 0, 0);
     font-size: 1rem;
     font-weight: bold;
+}
+.navbar-brand {
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 300;
+    letter-spacing: 4px;
+    text-align: center;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6);
+    
+}
+.nav-link{
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    font-weight: bold;
+    
+}
+
+.navbar{
+    align-items: center;
+    
 }
