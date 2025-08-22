@@ -50,7 +50,7 @@
     
 }
 
-.about-p{
+.text-content{
     margin-bottom: 20px;
     padding-bottom: 20px;
     background-color: rgba(255, 0, 0, 0.8);
@@ -61,11 +61,19 @@
 }
 
 .skills{
-    margin-top: 40px;
+    margin: 40px;
     background-color: rgb(248, 8, 8);
     text-decoration: solid;
     text-align: center;
     text-decoration: underline;
     color: white;
+}
 
+.footer-content {
+    background-color: rgb(248, 8, 8);
+    text-decoration: solid;
+    text-align: center;
+    text-decoration: underline;
+    color: white;
+    padding: 20px;
 }
