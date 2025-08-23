@@ -70,10 +70,28 @@
 }
 
 .footer-content {
-    background-color: rgb(248, 8, 8);
+    background-color: rgb(255, 255, 255);
     text-decoration: solid;
     text-align: center;
     text-decoration: underline;
     color: white;
     padding: 20px;
+}
+
+.contact-form {
+    color: rgb(0, 0, 0);
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: rgba(255, 0, 0, 0.8);
+    border-radius: 8px;
+}
+
+.form-check, .form-label, .form-text{
+    color: rgb(255, 255, 255);
+    
+}
+
+.navbar-toggler {
+    border-color: rgb(255, 255, 255);
 }
