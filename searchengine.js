@@ -4,7 +4,7 @@ const searchButton = document.getElementById('search-button');
 const searchInput = document.getElementById('search-input');
 const gifContainer = document.getElementById('gif-container');
 
-
+searchButton.addEventListener('click', fetchGifs);
 
 function fetchGifs() {
         const searchTerm = searchInput.value;
