@@ -108,3 +108,10 @@
     gap: 15px;
     padding: 20px;
 }
+
+.gif-container img {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    cursor: pointer;
+}

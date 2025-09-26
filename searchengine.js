@@ -4,35 +4,44 @@ const searchButton = document.getElementById('search-button');
 const searchInput = document.getElementById('search-input');
 const gifContainer = document.getElementById('gif-container');
 
-searchButton.addEventListener('click', fetchGifs);
+    searchButton.addEventListener('click', fetchGifs);
+    searchInput.addEventListener('keydown', (e) => { if (e.key === 'Enter') fetchGifs(); });
 
-function fetchGifs() {
-        const searchTerm = searchInput.value;
-        if (searchTerm.trim() === '') {
+    async function fetchGifs() {
+        const searchTerm = (searchInput.value || '').trim();
+        if (searchTerm === '') {
+            gifContainer.innerHTML = '<p>Please enter a search term.</p>';
             return;
         }
 
         const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}&limit=25`;
 
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                displayGifs(data.data);
-            })
-            .catch(error => console.error('Error fetching GIFs:', error));
+        gifContainer.innerHTML = '<p>Loading...</p>';
+
+        try {
+            const resp = await fetch(url);
+            if (!resp.ok) throw new Error(`HTTP ${resp.status} ${resp.statusText}`);
+            const data = await resp.json();
+            displayGifs(Array.isArray(data.data) ? data.data : []);
+        } catch (err) {
+            console.error('Error fetching GIFs:', err);
+            gifContainer.innerHTML = `<p>Error fetching GIFs: ${String(err)}</p>`;
+        }
     }
 
     function displayGifs(gifs) {
         gifContainer.innerHTML = '';
-        if (gifs.length === 0) {
+        if (!gifs || gifs.length === 0) {
             gifContainer.innerHTML = '<p>No GIFs found.</p>';
             return;
         }
 
         gifs.forEach(gif => {
             const img = document.createElement('img');
-            img.src = gif.images.fixed_height.url;
-            img.alt = gif.title;
+            const imgUrl = gif && gif.images && (gif.images.fixed_height?.url || gif.images.original?.url);
+            img.src = imgUrl || '';
+            img.alt = gif && gif.title ? gif.title : 'GIF';
+            img.loading = 'lazy';
             gifContainer.appendChild(img);
         });
     }
