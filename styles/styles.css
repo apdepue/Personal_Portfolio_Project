@@ -80,7 +80,7 @@
 
 .contact-form {
     color: rgb(255, 255, 255);
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
     background-color: rgb(255, 0, 0);
@@ -105,7 +105,7 @@
 .gif-container {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 15px;
+    gap: 30px;
     padding: 20px;
 }
 
@@ -114,4 +114,5 @@
     height: auto;
     border-radius: 5px;
     cursor: pointer;
+    gap: 20px;
 }

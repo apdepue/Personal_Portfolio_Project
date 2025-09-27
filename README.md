@@ -10,14 +10,22 @@
     2 There is a variety of content to consider. The Projects page highlights the work done without being too flashy.
     3 The contact page is always available. This makes it easier to reach out to the developer for follow-up information.
 
+## Search Engine User Stories
+
+    1 The page is clear and direct. Other websites can be overwhelming with ads and unnecessary content
+    2 The search engine functions quickly and neatly. GIFs animate smoothly and as they should.
+    3 
+
 ## Technologies Used
     -html
     -css
     -bootstrap
+    -Javascript
+    -fetch API
     
 ## Areas to improve
 
-    Implement Javascript
+    Implement more Javascript
     -animation
     -video
     -cards

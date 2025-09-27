@@ -14,7 +14,7 @@ const gifContainer = document.getElementById('gif-container');
             return;
         }
 
-        const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}&limit=25`;
+        const url = `https://api.giphy.com/v1/gifs/search?api_key=${apiKey}&q=${searchTerm}&limit=20&offset=0&rating=g&lang=en`;
 
         gifContainer.innerHTML = '<p>Loading...</p>';
 
