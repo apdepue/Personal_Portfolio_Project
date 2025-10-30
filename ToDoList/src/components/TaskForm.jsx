@@ -1,7 +1,7 @@
 import React from "react";
-import "./WordForm.css";
+import "./TaskForm.css";
 
-class WordForm extends React.Component {
+class TaskForm extends React.Component {
   frontRef = React.createRef();
   backRef = React.createRef();
   handleSubmit = (e) => {
@@ -16,34 +16,34 @@ class WordForm extends React.Component {
         enField.value = '';
         deField.value = '';
         
-        this.addWord(enValue, deValue);
+        this.addTask(enValue, deValue);
   }
 
   render() {
     return (
       <section className="card-form">
-            <h2>Add New Word</h2>
+            <h2>Add New Task</h2>
             <form action="#" method="GET" onSubmit={this.handleSubmit}>
               <div className="form-row">
                 <label>
                   English:
-                  <input type="text" name="en" placeholder="English Word" required />
+                  <input type="text" name="en" placeholder="English Task" required />
                   ref={this.frontRef}
                 </label>
               </div>
               <div className="form-row">
                 <label>
                   German:
-                  <input type="text" name="de" placeholder="German Word" required />
+                  <input type="text" name="de" placeholder="German Task" required />
                   ref={this.backRef}
                 </label>
               </div>
               <div className="form-row">
-              <button type="submit">Add Word</button>
+              <button type="submit">Add Task</button>
               </div>
             </form>
           </section>
     );
   }
 }
-export default WordForm;
+export default TaskForm;
