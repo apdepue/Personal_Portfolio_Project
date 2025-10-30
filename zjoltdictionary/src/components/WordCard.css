@@ -1,0 +1,37 @@
+.word-card {
+  border-radius: 10px;
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.4);
+  margin: 20px;
+  padding: 10px;
+  background-color: lightgoldenrodyellow;
+  display: inline-block;
+  width: 250px;
+  height: 150px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+}
+
+.delete-card {
+  font-weight: bold;
+  font-size: 24px;
+  border: 2px solid black;
+  border-radius: 50%;
+  position: absolute;
+  right: 7px;
+  top: 7px;
+  width: 25px;
+  height: 25px;
+  line-height: 21px;
+  text-align: center;
+}
+
+.delete-card:hover {
+  background-color: red;
+  color: white;
+  cursor: pointer;
+}

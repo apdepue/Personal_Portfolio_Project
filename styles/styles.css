@@ -107,9 +107,11 @@
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 30px;
     padding: 20px;
+    border-color: white;
 }
 
 .gif-container img {
+    
     width: 100%;
     height: auto;
     border-radius: 5px;
