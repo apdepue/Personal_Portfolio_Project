@@ -5,10 +5,3 @@
   flex-direction: column;
   text-align: center;
 }
-
-.TodoTitle {
-  font-size: 2.5rem;
-  color: #333333;
-  margin: 20px 0;
-  text-align: center;
-}
