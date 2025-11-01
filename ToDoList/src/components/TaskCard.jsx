@@ -16,7 +16,7 @@ export default class TaskCard extends Component {
     };
 
     handleFlip = () => {
-        this.state({isFront: !this.state.isFront});
+        this.setState({isFront: !this.state.isFront});
     };
 
     handleDelete = (e) => {

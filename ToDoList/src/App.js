@@ -29,7 +29,7 @@ class App extends React.Component {
     return (
         <div className="App">
           <header className="App-header">
-            Dictionary App
+            <h2>To-Do List</h2>
             <main>
               <TaskForm  addTask={this.addTask}/>
               <TaskContainer tasks={this.state.tasks} deleteTask={this.deleteTask} />

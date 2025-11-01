@@ -16,7 +16,7 @@ class TaskForm extends React.Component {
         enField.value = '';
         deField.value = '';
         
-        this.addTask(enValue, deValue);
+        this.props.addTask(enValue, deValue);
   }
 
   render() {
@@ -27,15 +27,15 @@ class TaskForm extends React.Component {
               <div className="form-row">
                 <label>
                   English:
-                  <input type="text" name="en" placeholder="English Task" required />
-                  ref={this.frontRef}
+                  <input type="text" name="en" placeholder="English Task" required 
+                  ref={this.frontRef}/>
                 </label>
               </div>
               <div className="form-row">
                 <label>
                   German:
-                  <input type="text" name="de" placeholder="German Task" required />
-                  ref={this.backRef}
+                  <input type="text" name="de" placeholder="German Task" required 
+                  ref={this.backRef}/>
                 </label>
               </div>
               <div className="form-row">
