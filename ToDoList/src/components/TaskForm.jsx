@@ -3,17 +3,21 @@ import "./TaskForm.css";
 
 class TaskForm extends React.Component {
   frontRef = React.createRef();
+  detailRef = React.createRef();
   backRef = React.createRef();
   handleSubmit = (e) => {
         e.preventDefault();
 
         const enField = this.frontRef.current;
-        const deField = this.backRef.current;
-        
+        const deField = this.detailRef.current;
+        //const cpField = this.backRef.current;
+
         const enValue = enField.value;
         const deValue = deField.value;
+        //const cpValue = cpField.value;
 
         enField.value = '';
+        //cpField.value = '';
         deField.value = '';
         
         this.props.addTask(enValue, deValue);
@@ -26,16 +30,18 @@ class TaskForm extends React.Component {
             <form action="#" method="GET" onSubmit={this.handleSubmit}>
               <div className="form-row">
                 <label>
-                  English:
-                  <input type="text" name="en" placeholder="English Task" required 
+                  Task Name:
+                  <input type="text" name="en" placeholder="Name your activity" required 
                   ref={this.frontRef}/>
+                </label>
+                <label>
+                  Task description:
+                  <input type="html" name="de" placeholder="Creat a task" required 
+                  ref={this.detailRef}/>
                 </label>
               </div>
               <div className="form-row">
                 <label>
-                  German:
-                  <input type="text" name="de" placeholder="German Task" required 
-                  ref={this.backRef}/>
                 </label>
               </div>
               <div className="form-row">

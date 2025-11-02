@@ -7,12 +7,14 @@ export default class TaskContainer extends React.Component {
     const tasks = this.props.tasks;
     const deleteTask = this.props.deleteTask;
 
-    const taskList = tasks.map( task =>
+    const taskList = tasks.map((task, idx) =>
         <TaskCard
-            front = {task.front} 
-            back = {task.back} 
-            key = {task.front}
-            deleteTask = {deleteTask}/>
+            id={task.id ?? `${task.front}-${idx}`}
+            front={task.front}
+            detail={task.detail}
+            back={task.back} 
+            key={task.id ?? `${task.front}-${idx}`}
+            deleteTask={deleteTask}/>
         );
 
     return (

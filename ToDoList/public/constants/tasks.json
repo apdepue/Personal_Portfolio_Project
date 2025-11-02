@@ -1,10 +1,10 @@
 [    
-    {"front": "Translation", "back": "Übersetzung"},
-    {"front": "Hello", "back": "Hallo"},
-    {"front": "Goodbye", "back": "Auf Wiedersehen"},
-    {"front": "Please", "back": "Bitte"},
-    {"front": "Thank you", "back": "Danke"},
-    {"front": "Yes", "back": "Ja"},
-    {"front": "No", "back": "Nein"},
-    {"front": "Excuse me", "back": "Entschuldigen Sie"}
+    {"front": "Translation", "detail": "Übersetzung"},
+    {"front": "Hello", "detail": "Hallo"},
+    {"front": "Goodbye", "detail": "Auf Wiedersehen"},
+    {"front": "Please", "detail": "Bitte"},
+    {"front": "Thank you", "detail": "Danke"},
+    {"front": "Yes", "detail": "Ja"},
+    {"front": "No", "detail": "Nein"},
+    {"front": "Excuse me", "detail": "Entschuldigen Sie"}
 ]

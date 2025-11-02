@@ -16,8 +16,8 @@ class App extends React.Component {
       .then( tasks =>this.setState({tasks}));
   }
 
-  addTask = (front, back) => {
-  const newTasks = [...this.state.tasks, {front, back}];
+  addTask = (front, detail) => {
+  const newTasks = [...this.state.tasks, {front, detail}];
   this.setState({tasks: newTasks});
   }
   deleteTask = (front) => {
