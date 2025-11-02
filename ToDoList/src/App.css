@@ -5,3 +5,8 @@
   flex-direction: column;
   text-align: center;
 }
+.App {
+  text-align: center;
+  background-color: red;
+  background: red;
+}
