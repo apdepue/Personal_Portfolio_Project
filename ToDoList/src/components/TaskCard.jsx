@@ -29,7 +29,6 @@ export default class TaskCard extends Component {
             </div>
         ) : (
             <div className="card-back">
-                
                 <p className="task-completed">Complete!</p>
                 {front}
                 <p>{detail ||

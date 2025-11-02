@@ -10,14 +10,11 @@ class TaskForm extends React.Component {
 
         const enField = this.frontRef.current;
         const deField = this.detailRef.current;
-        //const cpField = this.backRef.current;
 
         const enValue = enField.value;
         const deValue = deField.value;
-        //const cpValue = cpField.value;
 
         enField.value = '';
-        //cpField.value = '';
         deField.value = '';
         
         this.props.addTask(enValue, deValue);

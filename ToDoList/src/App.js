@@ -12,17 +12,29 @@ class App extends React.Component {
 
   componentDidMount() {
     fetch('./constants/tasks.json')
-      .then( data => data.json())
-      .then( tasks =>this.setState({tasks}));
+      .then(res => res.json())
+      .then(tasks => {
+        const seeded = (tasks || []).map((t, idx) => ({
+          id: t.id ?? `t-${Date.now()}-${idx}`,
+          front: t.front,
+          detail: t.detail,
+          back: t.back ?? false
+        }));
+        this.setState({ tasks: seeded });
+      })
+      .catch(err => {
+        console.error('Failed to load tasks.json', err);
+      });
   }
 
   addTask = (front, detail) => {
-  const newTasks = [...this.state.tasks, {front, detail}];
-  this.setState({tasks: newTasks});
+    const id = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : `t-${Date.now()}`;
+    const newTasks = [...this.state.tasks, { id, front, detail, back: false }];
+    this.setState({ tasks: newTasks });
   }
-  deleteTask = (front) => {
-  const newTasks = this.state.tasks.filter( task => task.front !== front);
-  this.setState({tasks: newTasks});
+
+  deleteTask = (id) => {
+    this.setState(prev => ({ tasks: prev.tasks.filter(task => task.id !== id) }));
   }
 
   render() {
@@ -31,7 +43,7 @@ class App extends React.Component {
           <header className="App-header">
             <h2>To-Do List</h2>
             <main>
-              <TaskForm  addTask={this.addTask}/>
+              <TaskForm addTask={this.addTask}/>
               <TaskContainer tasks={this.state.tasks} deleteTask={this.deleteTask} />
             </main>
           </header>
