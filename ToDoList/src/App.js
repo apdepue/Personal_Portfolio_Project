@@ -1,5 +1,6 @@
 import React from 'react';
 
+import Navbar from './components/Navbar';
 import TaskForm from './components/TaskForm';
 import TaskContainer from './components/TaskContainer';
 
@@ -41,6 +42,7 @@ class App extends React.Component {
     return (
         <div className="App">
           <header className="App-header">
+            <Navbar />
             <h2>To-Do List</h2>
             <main>
               <TaskForm addTask={this.addTask}/>
