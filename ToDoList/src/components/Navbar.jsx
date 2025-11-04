@@ -39,7 +39,7 @@ export default function Navbar() {
               <a className="nav-link" href="/search">Search GIFs</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/contact.html">Contact</a>
+              <a className="nav-link" href="/contact">Contact</a>
             </li>
           </ul>
         </div>
