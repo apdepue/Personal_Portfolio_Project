@@ -1,8 +1,10 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import TaskForm from './components/TaskForm';
 import TaskContainer from './components/TaskContainer';
+import Contact from './components/contact';
 
 import './App.css';
 
@@ -40,16 +42,21 @@ class App extends React.Component {
 
   render() {
     return (
-        <div className="App">
-          <header className="App-header">
-            <Navbar />
-            <h2>To-Do List</h2>
-            <main>
-              <TaskForm addTask={this.addTask}/>
-              <TaskContainer tasks={this.state.tasks} deleteTask={this.deleteTask} />
-            </main>
-          </header>
-        </div>
+          <Router>
+          <div className="App">
+            <header className="App-header">
+              <Navbar />
+              <h2>To-Do List</h2>
+              <main>
+                <TaskForm addTask={this.addTask}/>
+                <TaskContainer tasks={this.state.tasks} deleteTask={this.deleteTask} />
+              </main>
+            </header>
+          </div>
+          <Routes>
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+        </Router>
       );
     }
 }

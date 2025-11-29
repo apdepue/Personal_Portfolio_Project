@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./Navbar.css";
+import { Link } from 'react-router-dom';
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
@@ -25,7 +26,7 @@ export default function Navbar() {
               <a className="nav-link active" aria-current="page" href="/home">Home</a>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="#" role="button" onClick={e => e.preventDefault()} aria-expanded="false">
+              <a className="nav-link dropdown-toggle" href="./projects.html" role="button" onClick={e => e.preventDefault()} aria-expanded="false">
                 Projects
               </a>
               <ul className="dropdown-menu">
@@ -39,7 +40,7 @@ export default function Navbar() {
               <a className="nav-link" href="/search">Search GIFs</a>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/contact">Contact</a>
+              <Link className="nav-link" to="/contact">Contact</Link>
             </li>
           </ul>
         </div>
