@@ -1,5 +1,5 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import Navbar from './components/Navbar';
 import TaskForm from './components/TaskForm';
@@ -8,12 +8,10 @@ import Contact from './components/contact';
 
 import './App.css';
 
-class App extends React.Component {
-  state = {
-    tasks: []
-  };
+function App() {
+  const [tasks, setTasks] = useState([]);
 
-  componentDidMount() {
+  useEffect(() => {
     fetch('./constants/tasks.json')
       .then(res => res.json())
       .then(tasks => {
@@ -23,42 +21,47 @@ class App extends React.Component {
           detail: t.detail,
           back: t.back ?? false
         }));
-        this.setState({ tasks: seeded });
+        setTasks(seeded);
       })
       .catch(err => {
         console.error('Failed to load tasks.json', err);
       });
-  }
+  }, []);
 
-  addTask = (front, detail) => {
+  const addTask = (front, detail) => {
     const id = (typeof crypto !== 'undefined' && crypto.randomUUID) ? crypto.randomUUID() : `t-${Date.now()}`;
-    const newTasks = [...this.state.tasks, { id, front, detail, back: false }];
-    this.setState({ tasks: newTasks });
-  }
+    setTasks([...tasks, { id, front, detail, back: false }]);
+  };
 
-  deleteTask = (id) => {
-    this.setState(prev => ({ tasks: prev.tasks.filter(task => task.id !== id) }));
-  }
+  const deleteTask = (id) => {
+    setTasks(tasks.filter(task => task.id !== id));
+  };
 
-  render() {
-    return (
-          <Router>
+  const updateTaskCompletion = (id, isCompleted) => {
+    setTasks(tasks.map(task => 
+      task.id === id ? { ...task, back: isCompleted } : task
+    ));
+  };
+
+  return (
+    <BrowserRouter>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={
           <div className="App">
             <header className="App-header">
-              <Navbar />
               <h2>To-Do List</h2>
               <main>
-                <TaskForm addTask={this.addTask}/>
-                <TaskContainer tasks={this.state.tasks} deleteTask={this.deleteTask} />
+                <TaskForm addTask={addTask}/>
+                <TaskContainer tasks={tasks} deleteTask={deleteTask} updateTaskCompletion={updateTaskCompletion} />
               </main>
             </header>
           </div>
-          <Routes>
-            <Route path="/contact" element={<Contact />} />
-          </Routes>
-        </Router>
-      );
-    }
+        } />
+        <Route path="/contact" element={<Contact />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

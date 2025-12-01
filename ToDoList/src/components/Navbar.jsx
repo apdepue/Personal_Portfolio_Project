@@ -9,7 +9,7 @@ export default function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <a className="navbar-brand" href="/home">Alexander DePue</a>
+        <Link className="navbar-brand" to="/">Alexander DePue</Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -23,21 +23,24 @@ export default function Navbar() {
         <div className={`collapse navbar-collapse${open ? " show" : ""}`} id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="/home">Home</a>
+              <Link className="nav-link active" aria-current="page" to="/">Home</Link>
             </li>
             <li className="nav-item dropdown">
-              <a className="nav-link dropdown-toggle" href="./projects.html" role="button" onClick={e => e.preventDefault()} aria-expanded="false">
+              <Link className="nav-link dropdown-toggle" to="/projects" role="button" onClick={e => e.preventDefault()}>
                 Projects
-              </a>
+              </Link>
               <ul className="dropdown-menu">
-                <li><a className="dropdown-item" href="/projects">Project Page</a></li>
+                <li><Link className="dropdown-item" to="/projects">Project Page</Link></li>
                 <li><hr className="dropdown-divider" /></li>
-                <li><a className="dropdown-item" href="/projects#blender">Blender</a></li>
-                <li><a className="dropdown-item" href="/ideas">Ideas</a></li>
+                <li><Link className="dropdown-item" to="/projects#blender">Blender</Link></li>
+                <li><Link className="dropdown-item" to="/ideas">Ideas</Link></li>
               </ul>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="/search">Search GIFs</a>
+              <Link className="nav-link" to="/search">Search GIFs</Link>
+            </li>
+            <li className="nav-item">
+              <Link className="nav-link" to="/">To-Do-List</Link>
             </li>
             <li className="nav-item">
               <Link className="nav-link" to="/contact">Contact</Link>

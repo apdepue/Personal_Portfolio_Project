@@ -1,46 +1,44 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import "./TaskCard.css";
 
-export default class TaskCard extends Component {
-    state = {
-        isFront: true
-    };
+function TaskCard({ id, front, detail, back, deleteTask, updateTaskCompletion }) {
+  const [isCompleted, setIsCompleted] = useState(back);
 
-    handleFlip = () => {
-        this.setState(prev => ({ isFront: !prev.isFront }));
-    };
+  const handleFlip = (e) => {
+    e.stopPropagation();
+    const newStatus = !isCompleted;
+    setIsCompleted(newStatus);
+    updateTaskCompletion(id, newStatus);
+  };
 
-    handleDelete = (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const id = this.props.id ?? this.props.front;
-        if (typeof this.props.deleteTask === 'function') {
-            this.props.deleteTask(id);
-        }
-    };
-
-    render() {
-        const { front, detail } = this.props;
-
-        const cardContent = this.state.isFront ? (
-            <div className="card-front">
-                <h3 className="task-title">{front}</h3>
-                {detail ? <p className="task-detail-preview">{detail}</p> : null}
-            </div>
-        ) : (
-            <div className="card-back">
-                <p className="task-completed">Complete!</p>
-                {front}
-                <p>{detail ||
-                 "No details provided."}</p>     
-            </div>
-        );
-
-        return (
-            <div className="task-card" onClick={this.handleFlip}>
-                <span className="delete-card" onClick={this.handleDelete}>×</span>
-                {cardContent}
-            </div>
-        );
+  const handleDelete = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    const taskId = id ?? front;
+    if (typeof deleteTask === 'function') {
+      deleteTask(taskId);
     }
+  };
+
+  const cardContent = !isCompleted ? (
+    <div className="card-front">
+      <h3 className="task-title">{front}</h3>
+      {detail ? <p className="task-detail-preview">{detail}</p> : null}
+    </div>
+  ) : (
+    <div className="card-back">
+      <p className="task-completed">Complete!</p>
+      <h3>{front}</h3>
+      <p>{detail || "No details provided."}</p>     
+    </div>
+  );
+
+  return (
+    <div className={`task-card ${isCompleted ? 'completed' : 'incomplete'} ${isCompleted ? 'flipped' : ''}`} onClick={handleFlip}>
+      <span className="delete-card" onClick={handleDelete}>×</span>
+      {cardContent}
+    </div>
+  );
 }
+
+export default TaskCard;

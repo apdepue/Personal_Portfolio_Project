@@ -22,6 +22,9 @@
     -bootstrap
     -Javascript
     -fetch API
+    -react
+    -react-dom
+    -react-router-dom
     
 ## Areas to improve
 
