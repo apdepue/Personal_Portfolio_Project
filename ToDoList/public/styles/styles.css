@@ -3,8 +3,7 @@
     text-decoration: solid;
     text-align: center;
     text-decoration: underline;
-    text-decoration: aliceblue;
-    
+    text-decoration: aliceblue;   
 }
 .profiles {
     color: rgb(255, 255, 255);
@@ -47,7 +46,6 @@
     text-align: center;
     text-decoration: underline;
     color: white;
-    
 }
 
 .text-content{
@@ -80,16 +78,16 @@
 
 .contact-form {
     color: rgb(255, 255, 255);
-    max-width: 900px;
+    max-width: 35%;
     margin: 0 auto;
     padding: 20px;
     background-color: rgb(255, 0, 0);
-    border-radius: 8px;
+    border-radius: 80px;
 }
 
 .form-check, .form-label, .form-text{
     color: rgb(255, 255, 255);
-    
+    margin: 0;
 }
 
 .navbar-toggler {
@@ -117,4 +115,35 @@
     border-radius: 5px;
     cursor: pointer;
     gap: 20px;
+}
+
+.mb-3.form-check {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 10px;
+}
+
+.form-check-input {
+  margin: 0;
+  cursor: pointer;
+  
+}
+
+.form-check-label {
+  margin: 0;
+  cursor: pointer;
+}
+
+.contact-container-fluid{
+    background-color: rgb(255, 0, 0);
+    text-decoration: solid;
+    text-align: center;
+    text-decoration: underline;
+    text-decoration: rgb(255, 255, 255);
+    padding: 20px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-top: 30px;  
 }

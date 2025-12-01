@@ -18,13 +18,19 @@ export default function Contact() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Add your form submission logic here
     console.log('Form submitted:', formData);
+
+      setFormData({
+      email: '',
+      name: '',
+      message: '',
+      notRobot: false
+    });
   };
 
   return (
     <div>
-      <footer className="container-fluid footer-content">
+      <footer className="contact-container-fluid">
         <main>
           <div>
             <form className="contact-form" onSubmit={handleSubmit}>
